@@ -4,5 +4,5 @@ from .registration import *
 
 urlpatterns = [
     path('first/',firstAPI),
-    path('registration/',registration),
+    path('registration/',registrationAPI),
 ]
