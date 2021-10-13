@@ -1,11 +1,13 @@
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.decorators import api_view, permission_classes
 from django.shortcuts import render
 
 def homeView(request):
     return render(request, 'index.html')
 
 @api_view(['GET','POST'])
+@permission_classes([IsAuthenticated,])
 def firstAPI(request):
     if request.method=="POST":
         name=request.data['name']
@@ -47,7 +49,7 @@ def registrationAPI(request):
         
         return Response({"Success":"User successfully Registered!"})
     
-    
+
         
         
         
